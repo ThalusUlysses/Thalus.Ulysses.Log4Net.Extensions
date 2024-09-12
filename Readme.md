@@ -33,3 +33,42 @@ identifying it from a bunch of logs and do aggregations with approrpiate tooling
 
 With the ITraceEntry object created you can use this structured object to pump it everyhere e.g. Azure,
 Prometheusm grafana and so forth.
+
+# Example
+```json
+{
+  "ThreadId": 1,
+  "CategoryText": "Info",
+  "CategoryInt": 2,
+  "Text": "sdfsdfjkbsudfbsldfb Error",
+  "Data": null,
+  "Utc": "2024-09-12T12:10:31.5121071Z",
+  "Local": "2024-09-12T14:10:31.5121071+02:00",
+  "Line": 29,
+  "Scope": "Thalus.Ulysses.Log4Net.TestApp.Program",
+  "FileName": "C:\\_\\repos\\Thalus.Ulysses.Log4Net.Extensions\\src\\Thalus.Ulysses.Log4Net.TestApp\\Program.cs",
+  "CallerMember": "Main",
+  "Attributes": null,
+  "System": "KA_Test_System",
+  "ApplicationName": "Log4Net.TestApp",
+  "ApplicationVersion": "1.0.0",
+  "Site": "KA",
+  "ProcessId": 36304,
+  "ProcessName": "Thalus.Ulysses.Log4Net.TestApp",
+  "KVPairs": {
+    "InTextErrorIndication": true,
+    "ExecutingAssemblyName": "Thalus.Ulysses.Log4Net.Extensions",
+    "ExecutingAssemblyVersion": "1.0.0.0",
+    "AppDomainFriendlyName": "Thalus.Ulysses.Log4Net.TestApp",
+    "RunsOnMachine": "PC1272",
+    "OriginalLoggingFramework": "log4net:2.0.17.0",
+    "OriginalLogLevelText": "INFO",
+    "OriginalLogLevelInt": 40000,
+    "RegionGeoID": 94,
+    "RegionNativeName": "Deutschland",
+    "RegionEnglishName": "Germany"
+  },
+  "User": "8426FE6DF433AA66",
+  "ISORegionName": "DEU"
+}
+
