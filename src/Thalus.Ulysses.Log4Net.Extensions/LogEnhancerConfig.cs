@@ -11,9 +11,10 @@ namespace Thalus.Ulysses.Log4Net.Extensions
     [DebuggerDisplay("Site={Site},System={System},Machine={RunsOnMachine},App={ApplicationName},Version={ApplicationVersion}")]
     public class LogEnhancerConfig
     {
+        const string Unknown = "UNKNOWN";
         public LogEnhancerConfig()
         {
-            Site = "UNKNOWN";
+            Site = Unknown;
             System = Environment.MachineName;
             ApplicationName = Assembly.GetExecutingAssembly().GetName().Name;
             ApplicationVersion = Assembly.GetExecutingAssembly().GetName().Version?.ToString();

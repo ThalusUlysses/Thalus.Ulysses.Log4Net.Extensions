@@ -1,6 +1,7 @@
 ﻿using log4net.Core;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System.Configuration;
 using System.Diagnostics;
 using System.Globalization;
 using System.Reflection;
@@ -167,11 +168,18 @@ namespace Thalus.Ulysses.Log4Net.Extensions
                 ISORegionName = r.ThreeLetterISORegionName
             };
 
+            AdjustLocationInfo(locationInformation, traceObject);
+
+            return AdjustAndScrapText(traceObject);
+        }
+
+        private void AdjustLocationInfo(LocationInfo locationInformation, TraceEntryDTO traceObject)
+        {
             if (locationInformation != null)
             {
-                traceObject.CallerMember = eventData.LocationInfo?.MethodName;
-                traceObject.Line = int.Parse(eventData.LocationInfo?.LineNumber);
-                traceObject.FileName = eventData.LocationInfo?.FileName;
+                traceObject.CallerMember = locationInformation?.MethodName;
+                traceObject.Line = int.Parse(locationInformation?.LineNumber);
+                traceObject.FileName = locationInformation?.FileName;
             }
             else
             {
@@ -179,8 +187,6 @@ namespace Thalus.Ulysses.Log4Net.Extensions
                 traceObject.Line = NOT_SET_INT;
                 traceObject.FileName = NOT_SET_STRING;
             }
-
-            return AdjustAndScrapText(traceObject);
         }
 
         /// <summary>

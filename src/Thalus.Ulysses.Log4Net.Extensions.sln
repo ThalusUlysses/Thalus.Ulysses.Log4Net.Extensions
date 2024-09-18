@@ -5,7 +5,7 @@ VisualStudioVersion = 17.8.34322.80
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Thalus.Ulysses.Log4Net.Extensions", "Thalus.Ulysses.Log4Net.Extensions\Thalus.Ulysses.Log4Net.Extensions.csproj", "{BCC065E3-15C6-4C02-B665-EB51AB0C0CC8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Thalus.Ulysses.Log4Net.TestApp", "Thalus.Ulysses.Log4Net.TestApp\Thalus.Ulysses.Log4Net.TestApp.csproj", "{04F8E07B-8129-44AE-B041-33D74A732CC9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Thalus.Ulysses.Log4Net.TestApp", "Thalus.Ulysses.Log4Net.TestApp\Thalus.Ulysses.Log4Net.TestApp.csproj", "{04F8E07B-8129-44AE-B041-33D74A732CC9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

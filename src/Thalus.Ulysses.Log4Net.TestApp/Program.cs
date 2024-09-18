@@ -12,7 +12,7 @@ namespace Thalus.Ulysses.Log4Net.TestApp
         {
 #pragma warning disable CS0168 // Variable is declared but never used
             // This is to fix Microsoft idiocracy in not copying all dependencies to the output folder
-            MyAppender app;
+            RemoteLogAppenderExample app;
 #pragma warning restore CS0168 // Variable is declared but never used
 
             Console.WriteLine("Hello, World!");
