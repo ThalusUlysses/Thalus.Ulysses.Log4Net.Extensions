@@ -1,7 +1,6 @@
 ﻿using log4net.Core;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using System.Configuration;
 using System.Diagnostics;
 using System.Globalization;
 using System.Reflection;
@@ -97,7 +96,7 @@ namespace Thalus.Ulysses.Log4Net.Extensions
 
         private void AddCommonAttributesTo(List<string> attributes)
         {
-            
+
         }
 
         /// <summary>
@@ -136,16 +135,16 @@ namespace Thalus.Ulysses.Log4Net.Extensions
 
             var eventData = e.GetLoggingEventData();
             var locationInformation = e.LocationInformation;
-            
+
             var category = MapCategory(e.Level);
             var threadId = ExtractThreadId(e);
-            
+
             var convertToKvOk = AddExceptionDataTo(kvPairs, e.ExceptionObject);
 
             AddCommonDataTo(kvPairs, e);
 
             var r = RegionInfo.CurrentRegion;
-            
+
             AddCommonAttributesTo(attributes);
 
             var traceObject = new TraceEntryDTO
@@ -242,7 +241,7 @@ namespace Thalus.Ulysses.Log4Net.Extensions
             return (string.IsNullOrEmpty(prefix) ? name : prefix + "." + name);
         }
 
-     
+
         /// <summary>
         /// Uses RegEx to find any IP adrees in a given string and replace it by an anonymized
         /// strring pattern.
@@ -272,10 +271,10 @@ namespace Thalus.Ulysses.Log4Net.Extensions
         string ScrapPassword(string text)
         {
             var patterns = new[] { "password", "pw" };
-           
+
             string workingText = text;
-           
-            foreach (var pattern in patterns) 
+
+            foreach (var pattern in patterns)
             {
                 workingText = ScrapText(workingText, pattern);
             }
@@ -315,7 +314,7 @@ namespace Thalus.Ulysses.Log4Net.Extensions
             {
                 Match m = (Match)item;
                 text = text.Replace(m.Value, $"SCRAPPED_URL{GetHashString(m.Value)}");
-            }           
+            }
 
             return text;
         }
@@ -327,7 +326,7 @@ namespace Thalus.Ulysses.Log4Net.Extensions
         /// <param name="text"></param>
         /// <param name="scrapText"></param>
         /// <returns></returns>
-        string ScrapText(string text,string scrapText)
+        string ScrapText(string text, string scrapText)
         {
             string workingText = text.ToLowerInvariant();
 
@@ -346,7 +345,7 @@ namespace Thalus.Ulysses.Log4Net.Extensions
             StringBuilder b = new StringBuilder();
 
             b.Append(text.Substring(0, foundIndexes.First()));
-            foreach (var index in foundIndexes) 
+            foreach (var index in foundIndexes)
             {
                 b.Append(text.Substring(index, scrapText.Length));
                 if (text.Length > (index + scrapText.Length + 32))
@@ -358,14 +357,14 @@ namespace Thalus.Ulysses.Log4Net.Extensions
                     b.Append(GetHashString(text.Substring(index + scrapText.Length, text.Length - index - scrapText.Length)));
                 }
             }
-            var lastIdx = foundIndexes.Last(); 
+            var lastIdx = foundIndexes.Last();
             if (text.Length > (lastIdx + scrapText.Length + 32))
             {
                 b.Append(text.Substring(foundIndexes.Last() + scrapText.Length + 32));
             }
 
             return b.ToString();
-        }        
+        }
 
         /// <summary>
         /// Adjusts the text of the trace entry and checks for text patterns like ERROR or ORACLE and so forth
@@ -415,7 +414,7 @@ namespace Thalus.Ulysses.Log4Net.Extensions
                 {
                     trace.KVPairs = additionalKVps;
                 }
-            }           
+            }
 
             return trace;
 

@@ -22,7 +22,7 @@ namespace Thalus.Ulysses.Log4Net.Extensions.Result
 
         }
 
-        public static IResult<TDataType> Fatal<TDataType>(Exception ex,string text, int code = 500)
+        public static IResult<TDataType> Fatal<TDataType>(Exception ex, string text, int code = 500)
         {
             return new Result<TDataType>() { Code = code, Text = text, Errors = new[] { new Error { Code = 500, Exception = ex, Text = ex.Message } } };
 
@@ -38,7 +38,7 @@ namespace Thalus.Ulysses.Log4Net.Extensions.Result
 
         public TType GetData()
         {
-          return Data;
+            return Data;
         }
 
         public TType GetDataAs<TDataType>() where TDataType : TType

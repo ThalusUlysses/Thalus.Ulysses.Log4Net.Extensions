@@ -1,7 +1,7 @@
 ﻿namespace Thalus.Ulysses.Log4Net.Extensions
 {
-    public class RemoteLogIngestionExampleConfig    
-    { 
+    public class RemoteLogIngestionExampleConfig
+    {
         /// <summary>
         /// Gets or sets a rule id that might be applied to your log ingestion
         /// using a rule ID for data collection is a very common thing

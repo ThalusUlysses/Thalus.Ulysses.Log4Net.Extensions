@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Thalus.Ulysses.Log4Net.Extensions.Contracts.Result
+﻿namespace Thalus.Ulysses.Log4Net.Extensions.Contracts.Result
 {
     public interface IResult<TType>
     {
@@ -19,6 +13,6 @@ namespace Thalus.Ulysses.Log4Net.Extensions.Contracts.Result
 
         TType GetData();
 
-        TType GetDataAs<TDataType>() where TDataType: TType;
+        TType GetDataAs<TDataType>() where TDataType : TType;
     }
 }

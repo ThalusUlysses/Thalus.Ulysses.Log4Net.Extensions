@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Diagnostics;
 using Thalus.Ulysses.Log4Net.Extensions.Contracts.Trace;
 
 namespace Thalus.Ulysses.Log4Net.Extensions.Trace
@@ -34,7 +29,7 @@ namespace Thalus.Ulysses.Log4Net.Extensions.Trace
 
         [DebuggerDisplay("{FileName} {CallerMember} {Line}")]
         public string FileName { get; set; }
-        
+
         [DebuggerDisplay("{FileName} {CallerMember} {Line}")]
         public string CallerMember { get; set; }
 

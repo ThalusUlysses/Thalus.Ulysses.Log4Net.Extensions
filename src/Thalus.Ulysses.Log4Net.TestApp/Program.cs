@@ -21,7 +21,7 @@ namespace Thalus.Ulysses.Log4Net.TestApp
             logger.Info("This is a low hanging Fruit with Log4Net making it to a structured like approach example 192.1.6.0 with a scrapped IP address for pi reasons", new Exception());
             // Expect that the url is scapped
             logger.Info("sdfsdfsdf http://las.com/asdfsadfsd/asfsdf sdfsidufhoisdfn sdfnosdifnsdf ");
-            
+
             // Expect user password and url scrapped
             logger.Info("sdfsdfsdf http://las.com/asdfsadfsd/asfsdf sdfsidufhoisdfn password=123456789987654321321654987789945 user IamEagle");
 

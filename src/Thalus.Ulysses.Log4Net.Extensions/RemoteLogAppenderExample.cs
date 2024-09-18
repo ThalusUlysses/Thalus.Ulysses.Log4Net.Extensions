@@ -1,10 +1,5 @@
-﻿using Azure.Core;
-using Azure.Identity;
-using Azure.Monitor.Ingestion;
-using log4net.Appender;
+﻿using log4net.Appender;
 using log4net.Core;
-using Newtonsoft.Json;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Thalus.Ulysses.Log4Net.Extensions
 {
@@ -23,7 +18,7 @@ namespace Thalus.Ulysses.Log4Net.Extensions
         object _lockEnhancerCreation = new object();
 
         RemoteLogIngestionExample _logIngestion;
-   
+
         public RemoteLogAppenderExample()
         {
 
@@ -46,20 +41,20 @@ namespace Thalus.Ulysses.Log4Net.Extensions
                 if (_logIngestion == null)
                 {
                     var config = new RemoteLogIngestionExampleConfig
-                    { 
+                    {
                         DataStreamId = DataStreamId,
-                        RuleId = RuleId, 
+                        RuleId = RuleId,
                         ConnectionString = ConnectionString,
                         IngestionIntervall = IngestionIntervall
                     };
 
                     _logIngestion = new RemoteLogIngestionExample(config);
-                }              
+                }
             }
 
             var item = _enhancer.Enhance(loggingEvent);
 
-           var result = _logIngestion.IngestAsync(item).Result;
+            var result = _logIngestion.IngestAsync(item).Result;
         }
 
         public string Site { get => _config.Site; set => _config.Site = value; }

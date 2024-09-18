@@ -1,10 +1,4 @@
-﻿using Azure;
-using Azure.Core;
-using Azure.Identity;
-using Azure.Monitor.Ingestion;
-using Newtonsoft.Json;
-using System.Collections.Generic;
-using System.Diagnostics;
+﻿using Newtonsoft.Json;
 using Thalus.Ulysses.Log4Net.Extensions.Contracts.Result;
 using Thalus.Ulysses.Log4Net.Extensions.Contracts.Trace;
 using Thalus.Ulysses.Log4Net.Extensions.Result;
@@ -73,7 +67,7 @@ namespace Thalus.Ulysses.Log4Net.Extensions
 
 
         private void Store(ITraceEntry entry)
-        {   
+        {
             lock (_rWLockTraceEntries)
             {
                 Console.WriteLine(JsonConvert.SerializeObject(entry, Formatting.Indented));
@@ -88,9 +82,9 @@ namespace Thalus.Ulysses.Log4Net.Extensions
 
         RemoteLogIngestionExampleConfig DefaultConfig()
         {
-            return new RemoteLogIngestionExampleConfig 
+            return new RemoteLogIngestionExampleConfig
             {
-                MaxConcurrentRequests = MAX_CONCURRENCY, 
+                MaxConcurrentRequests = MAX_CONCURRENCY,
                 IngestionIntervall = DEFAULT_INGESTION_INTERVALL,
                 MaxEntries = MAX_STORED_ENTRIES
             };
@@ -129,7 +123,7 @@ namespace Thalus.Ulysses.Log4Net.Extensions
             //.
             //.
             //.
-            throw new NotImplementedException("Implement your log ingestion here");            
+            throw new NotImplementedException("Implement your log ingestion here");
         }
 
         private IEnumerable<ITraceEntry> SafeDequeueEntries()
@@ -142,10 +136,10 @@ namespace Thalus.Ulysses.Log4Net.Extensions
             }
 
             return temp;
-        }       
+        }
 
 
-        public async Task<IResult<object>> IngestAsync(ITraceEntry trace)        
+        public async Task<IResult<object>> IngestAsync(ITraceEntry trace)
         {
             try
             {
@@ -166,7 +160,7 @@ namespace Thalus.Ulysses.Log4Net.Extensions
                     return Result<object>.Ok<object>($"Nothing to ingest");
                 }
 
-               var result = await PushStored();
+                var result = await PushStored();
 
                 _storeLastSentDateTimeUtc = utcNow;
 
