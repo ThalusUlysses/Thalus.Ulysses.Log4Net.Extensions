@@ -74,7 +74,7 @@ namespace Thalus.Ulysses.Log4Net.Extensions
 
         private void Store(ITraceEntry entry)
         {   
-            lock (_entries)
+            lock (_rWLockTraceEntries)
             {
                 Console.WriteLine(JsonConvert.SerializeObject(entry, Formatting.Indented));
 
