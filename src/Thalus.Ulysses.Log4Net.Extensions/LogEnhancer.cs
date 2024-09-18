@@ -63,6 +63,8 @@ namespace Thalus.Ulysses.Log4Net.Extensions
         {
             if (ex != null)
             {
+                kvPairs[$"IsExceptionIndicated"] = true;
+
                 var exceptionKV = CreateFromData(ex);
                 if (exceptionKV == null)
                 {
@@ -70,7 +72,7 @@ namespace Thalus.Ulysses.Log4Net.Extensions
                 }
                 foreach (var kv in exceptionKV)
                 {
-                    kvPairs[kv.Key] = kv.Value;
+                    kvPairs[$"Exception.{kv.Key}"] = kv.Value;
                 }
             }
 
